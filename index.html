@@ -8,6 +8,27 @@
     <title>Todo List APP</title>
 </head>
 <body>
-    
+    <div class="main">
+        <div class="tools">
+            <button>New Project</button>
+            <select name="sort" id="sort">
+                <option value="all">All</option>
+                <option value="done">Done</option>
+                <option value="undone">Undone</option>
+                <option value="almost">In progress</option>
+            </select>
+        </div>
+        <div class="content">
+            <div class="item">
+                <span class="state"></span>
+                <div class="item-info">
+                    <p class="item-info__name">Project Name</p>
+                    <p class="item-info__date">01/06/2024</p>
+                </div>
+                <button class="edit-btn"><span class="edit-icon"></span></button>
+                <button class="del-btn"><span class="del-icon"></span></button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
