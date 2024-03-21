@@ -15,16 +15,19 @@ body {
 
 .main {
     max-width: 500px;
+    max-height: 100%;
     width: 100%;
     background: #999;
     border-radius: 0.25rem;
     padding: 1rem;
+    overflow: scroll;
 }
 
 .tools {
     display: flex;
     justify-content: space-between;
     margin-bottom: 1rem;
+    position: sticky;
 }
 
 .tools__new-project {
@@ -48,6 +51,7 @@ body {
     padding-block: 0.5rem;
     padding-inline: 1rem;
     border-radius: 0.25rem;
+    margin-block: 1rem;
 }
 
 .edit-btn {
@@ -109,4 +113,19 @@ body {
 .edit-btn:active,
 .del-btn:active {
     background: #ccc;
+}
+
+@media screen and (max-width: 500px) {
+    body {
+        display: unset;
+        align-items: unset;
+        justify-content: unset;
+        background: #999;
+    }
+
+    .main {
+        height: 100%;
+        overflow: unset;
+        background: transparent;
+    }
 }
