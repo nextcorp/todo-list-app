@@ -1,7 +1,57 @@
 const main = document.querySelector(".main")
 const content = main.querySelector(".content")
+const addButton = main.querySelector(".tools__new-project")
+
+const overlay = document.querySelector(".overlay")
+const addItemElement = overlay.querySelector(".add-item")
+
+const addCancel = addItemElement.querySelector(".add-item__cancel-button")
+const addConfirm = addItemElement.querySelector(".add-item__confirm-button")
 
 let list = []
+
+function addEntry() {
+    //prettier-ignore
+    const fullName = addItemElement.querySelector(`input[name="fullname"]`).value
+    //prettier-ignore
+    const dateEnd = addItemElement.querySelector(`input[name="end-date"]`).value
+    const priority = "regular"
+    const status = "undone"
+
+    const today = new Date()
+
+    const dateEndObj = new Date(dateEnd)
+
+    //prettier-ignore
+    const dateStart = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`
+
+    //prettier-ignore
+    const dateEndFormatted = `${dateEndObj.getDate()}/${dateEndObj.getMonth() + 1}/${dateEndObj.getFullYear()}`
+
+    const newObj = {
+        fullName: fullName,
+        status: status,
+        priority: priority,
+        start: dateStart,
+        end: dateEndFormatted,
+    }
+
+    list.push(newObj)
+
+    hideAddItemElement()
+    render(list)
+    updateButtons()
+}
+
+function hideAddItemElement() {
+    overlay.classList.add("hidden")
+    addItemElement.classList.add("hidden")
+}
+
+function showAddItemElement() {
+    overlay.classList.remove("hidden")
+    addItemElement.classList.remove("hidden")
+}
 
 function delEntry(id) {
     list.splice(id, 1)
@@ -38,11 +88,14 @@ function render(list) {
 }
 
 async function load() {
-    const resp = await fetch("./data.json")
-    const data = await resp.json()
-    list = data
-    render(list)
-    updateButtons()
+    //const resp = await fetch("./data.json")
+    //const data = await resp.json()
+    //list = data
+    //render(list)
+    //updateButtons()
 }
 
-document.addEventListener("DOMContentLoaded", load)
+//document.addEventListener("DOMContentLoaded", load)
+addButton.addEventListener("click", showAddItemElement)
+addCancel.addEventListener("click", hideAddItemElement)
+addConfirm.addEventListener("click", addEntry)

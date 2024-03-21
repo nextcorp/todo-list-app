@@ -1,58 +1,9 @@
 [
     {
         "fullName": "Item Name",
-        "status": "undone",
-        "priority": "regular",
-        "start": "20/03/2024",
-        "end": "10/04/2024"
-    },
-    {
-        "fullName": "Item Name",
-        "status": "undone",
-        "priority": "regular",
-        "start": "20/03/2024",
-        "end": "10/04/2024"
-    },
-    {
-        "fullName": "Item Name",
-        "status": "undone",
-        "priority": "regular",
-        "start": "20/03/2024",
-        "end": "10/04/2024"
-    },
-    {
-        "fullName": "Item Name",
-        "status": "undone",
-        "priority": "regular",
-        "start": "20/03/2024",
-        "end": "10/04/2024"
-    },
-    {
-        "fullName": "Item Name",
-        "status": "undone",
-        "priority": "regular",
-        "start": "20/03/2024",
-        "end": "10/04/2024"
-    },
-    {
-        "fullName": "Item Name",
-        "status": "undone",
-        "priority": "regular",
-        "start": "20/03/2024",
-        "end": "10/04/2024"
-    },
-    {
-        "fullName": "Item Name",
-        "status": "undone",
-        "priority": "regular",
-        "start": "20/03/2024",
-        "end": "10/04/2024"
-    },
-    {
-        "fullName": "Item Name",
-        "status": "undone",
-        "priority": "regular",
-        "start": "20/03/2024",
-        "end": "10/04/2024"
+        "status": "undone/done/progress",
+        "priority": "low/normal/high",
+        "start": "dd/mm/yyyy",
+        "end": "dd/mm/yyyy"
     }
 ]
