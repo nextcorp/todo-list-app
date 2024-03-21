@@ -1,6 +1,6 @@
 .add-item {
     background: #999;
-    border-radius: 0.25rem;
+    border-radius: 0.5rem;
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
