@@ -71,9 +71,20 @@ body {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: #f00;
     align-self: center;
     margin-right: 1rem;
+}
+
+.state.undone {
+    background: #f00;
+}
+
+.state.done {
+    background: #0f0;
+}
+
+.state.progress {
+    background: #ff0;
 }
 
 .tools__new-project:hover,
