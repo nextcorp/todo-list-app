@@ -38,11 +38,17 @@ body {
     border-radius: 0.25rem;
 }
 
-.tools__sort {
+.tools__sort,
+.tools__sort-priority {
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 0.25rem;
     background: #ccc;
+}
+
+.tools__sort-priority {
+    margin-left: auto;
+    margin-right: 1rem;
 }
 
 .item {

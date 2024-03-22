@@ -8,10 +8,56 @@ const addItemElement = overlay.querySelector(".add-item")
 const addCancel = addItemElement.querySelector(".add-item__cancel-button")
 const addConfirm = addItemElement.querySelector(".add-item__confirm-button")
 
+const editElement = overlay.querySelector(".edit-item")
+const editElementName = editElement.querySelector(".edit-item__name")
+const editElementEndDate = editElement.querySelector(".edit-item__end-date")
+const editElementPriority = editElement.querySelector(".edit-item__priority")
+const editElementStatus = editElement.querySelector(".edit-item__status")
+
+const editElementConfirm = editElement.querySelector(
+    ".edit-item__confirm-button"
+)
+
 let list = []
 
 function saveList() {
     localStorage.setItem("todos", JSON.stringify(list))
+}
+
+function editEntry() {
+    const updateId = parseInt(editElement.dataset.id)
+    list[updateId].priority = editElementPriority.value
+    list[updateId].status = editElementStatus.value
+
+    editElement.dataset.id = ""
+    editElementName.value = ""
+    editElementEndDate.value = ""
+    editElementPriority.value = ""
+    editElementStatus.value = ""
+
+    editElement.classList.add("hidden")
+    overlay.classList.add("hidden")
+
+    render(list)
+    updateButtons()
+    saveList()
+}
+
+function editButtonHandler(id) {
+    editElement.dataset.id = id
+    editElementName.value = list[id].fullName
+
+    const formattedDate = list[id].end.split("/")
+
+    editElementEndDate.value = `${formattedDate[2]}-${formattedDate[1].padStart(
+        2,
+        "0"
+    )}-${formattedDate[0].padStart(2, "0")}`
+    editElementPriority.value = list[id].priority
+    editElementStatus.value = list[id].status
+
+    overlay.classList.remove("hidden")
+    editElement.classList.remove("hidden")
 }
 
 function addEntry() {
@@ -19,7 +65,7 @@ function addEntry() {
     const fullName = addItemElement.querySelector(`input[name="fullname"]`).value
     //prettier-ignore
     const dateEnd = addItemElement.querySelector(`input[name="end-date"]`).value
-    const priority = "regular"
+    const priority = "normal"
     const status = "undone"
 
     const today = new Date()
@@ -30,7 +76,7 @@ function addEntry() {
     const dateStart = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`
 
     //prettier-ignore
-    const dateEndFormatted = `${dateEndObj.getDate()}/${dateEndObj.getMonth() + 1}/${dateEndObj.getFullYear()}`
+    const dateEndFormatted = `${dateEndObj.getDate().toString().padStart(2, "0")}/${(dateEndObj.getMonth() + 1).toString().padStart(2, "0")}/${dateEndObj.getFullYear()}`
 
     const newObj = {
         fullName: fullName,
@@ -72,6 +118,10 @@ function updateButtons() {
     allDelete.forEach((e) => {
         e.addEventListener("click", () => delEntry(e.dataset.id))
     })
+
+    allEdit.forEach((e) => {
+        e.addEventListener("click", () => editButtonHandler(e.dataset.id))
+    })
 }
 
 function template(id, obj) {
@@ -81,8 +131,8 @@ function template(id, obj) {
         <p class="item-info__name">${obj.fullName}</p>
         <p class="item-info__date">${obj.end}</p>
     </div>
-    <button class="edit-btn" data-edit-id=${id}><i class="fa-solid fa-pencil"></i></button>
-    <button class="del-btn" data-del-id=${id}><i class="fa-solid fa-trash-can"></i></button>
+    <button class="edit-btn" data-id=${id}><i class="fa-solid fa-pencil"></i></button>
+    <button class="del-btn" data-id=${id}><i class="fa-solid fa-trash-can"></i></button>
     </div>
     `
 }
@@ -110,3 +160,4 @@ document.addEventListener("DOMContentLoaded", loadList)
 addButton.addEventListener("click", showAddItemElement)
 addCancel.addEventListener("click", hideAddItemElement)
 addConfirm.addEventListener("click", addEntry)
+editElementConfirm.addEventListener("click", editEntry)

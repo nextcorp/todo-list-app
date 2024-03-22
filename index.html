@@ -16,23 +16,29 @@
     <div class="main">
         <div class="tools">
             <button class="tools__new-project">New Item</button>
+            <select name="sort-priority" id="sort-priority" class="tools__sort-priority">
+                <option value="all">All</option>
+                <option value="low">Low</option>
+                <option value="normal">Normal</option>
+                <option value="high">High</option>
+            </select>
             <select name="sort" id="sort" class="tools__sort">
                 <option value="all">All</option>
                 <option value="done">Done</option>
                 <option value="undone">Undone</option>
-                <option value="almost">In progress</option>
+                <option value="progress">In progress</option>
             </select>
         </div>
         <div class="content"></div>
     </div>
-    <div class="overlay">
+    <div class="overlay hidden">
         <div class="add-item hidden">
             <input type="text" name="fullname" id="fullname">
             <input type="date" name="end-date" id="end-date">
             <button class="add-item__cancel-button">Cancel</button>
             <button class="add-item__confirm-button">Confirm</button>
         </div>
-        <div class="edit-item" data-edit-id="">
+        <div class="edit-item hidden" data-id="">
             <p class="edit-item__name">Item Name</p>
             <input type="date" name="edit-item__end-date" id="edit-item__end-date" class="edit-item__end-date" disabled>
             <select name="edit-item__priority" id="edit-item__priority" class="edit-item__priority">
