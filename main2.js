@@ -6,11 +6,12 @@ function sortItems() {
     const priority = sortPriorityElement.value
     const status = sortStatusElement.value
     let sorted = list
-    sorted =
-        priority === "all"
-            ? sorted
-            : list.filter((e) => e.priority === priority)
-    sorted = status === "all" ? sorted : list.filter((e) => e.status === status)
+    if (priority != "all") {
+        sorted = sorted.filter((e) => e.priority === priority)
+    }
+    if (status != "all") {
+        sorted = sorted.filter((e) => e.status === status)
+    }
     render(sorted)
     updateButtons()
 }

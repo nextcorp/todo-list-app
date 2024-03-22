@@ -75,11 +75,17 @@ function addEntry() {
 
     const dateEndObj = new Date(dateEnd)
 
-    //prettier-ignore
-    const dateStart = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`
-
-    //prettier-ignore
-    const dateEndFormatted = `${dateEndObj.getDate().toString().padStart(2, "0")}/${(dateEndObj.getMonth() + 1).toString().padStart(2, "0")}/${dateEndObj.getFullYear()}`
+    const dateStart = `${today.getDate().toString().padStart(2, "0")}/${(
+        today.getMonth() + 1
+    )
+        .toString()
+        .padStart(2, "0")}/${today.getFullYear()}`
+    const dateEndFormatted = `${dateEndObj
+        .getDate()
+        .toString()
+        .padStart(2, "0")}/${(dateEndObj.getMonth() + 1)
+        .toString()
+        .padStart(2, "0")}/${dateEndObj.getFullYear()}`
 
     const newObj = {
         fullName: fullName,
@@ -91,13 +97,13 @@ function addEntry() {
 
     list.push(newObj)
 
+    sortStatusElement.value = "all"
+    sortPriorityElement.value = "all"
+
     hideAddItemElement()
     render(list)
     updateButtons()
     saveList()
-
-    sortStatusElement.value = "all"
-    sortPriorityElement.value = "all"
 }
 
 function hideAddItemElement() {
@@ -112,6 +118,10 @@ function showAddItemElement() {
 
 function delEntry(id) {
     list.splice(id, 1)
+
+    sortStatusElement.value = "all"
+    sortPriorityElement.value = "all"
+
     render(list)
     updateButtons()
     saveList()
@@ -143,9 +153,9 @@ function template(id, obj) {
     `
 }
 
-function render(list) {
+function render(list2) {
     let container = ""
-    list.forEach((e, i) => (container += template(i, e)))
+    list2.forEach((e, i) => (container += template(list.indexOf(e), e)))
     content.innerHTML = container
 }
 
