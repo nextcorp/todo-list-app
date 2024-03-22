@@ -1,4 +1,5 @@
-.add-item {
+.add-item,
+.edit-item {
     background: #999;
     border-radius: 0.5rem;
     padding: 1.5rem;
@@ -8,7 +9,10 @@
 }
 
 .add-item input[name="fullname"],
-.add-item input[name="end-date"] {
+.add-item input[name="end-date"],
+.edit-item__end-date,
+.edit-item__priority,
+.edit-item__status {
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 0.25rem;
@@ -17,8 +21,15 @@
 }
 
 .add-item__cancel-button,
-.add-item__confirm-button {
+.add-item__confirm-button,
+.edit-item__confirm-button {
     padding-block: 0.7rem;
     border: none;
     border-radius: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.edit-item__name,
+.edit-item__label {
+    font-size: 1.1rem;
 }

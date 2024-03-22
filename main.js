@@ -10,6 +10,10 @@ const addConfirm = addItemElement.querySelector(".add-item__confirm-button")
 
 let list = []
 
+function saveList() {
+    localStorage.setItem("todos", JSON.stringify(list))
+}
+
 function addEntry() {
     //prettier-ignore
     const fullName = addItemElement.querySelector(`input[name="fullname"]`).value
@@ -41,6 +45,7 @@ function addEntry() {
     hideAddItemElement()
     render(list)
     updateButtons()
+    saveList()
 }
 
 function hideAddItemElement() {
@@ -57,6 +62,7 @@ function delEntry(id) {
     list.splice(id, 1)
     render(list)
     updateButtons()
+    saveList()
 }
 
 function updateButtons() {
@@ -87,15 +93,20 @@ function render(list) {
     content.innerHTML = container
 }
 
-async function load() {
+/*async*/ function loadList() {
     //const resp = await fetch("./data.json")
     //const data = await resp.json()
-    //list = data
-    //render(list)
-    //updateButtons()
+
+    const todos = localStorage.getItem("todos")
+    if (todos) {
+        list = JSON.parse(todos)
+    }
+    render(list)
+    updateButtons()
 }
 
-//document.addEventListener("DOMContentLoaded", load)
+document.addEventListener("DOMContentLoaded", loadList)
+
 addButton.addEventListener("click", showAddItemElement)
 addCancel.addEventListener("click", hideAddItemElement)
 addConfirm.addEventListener("click", addEntry)

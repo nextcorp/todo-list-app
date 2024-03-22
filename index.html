@@ -25,12 +25,27 @@
         </div>
         <div class="content"></div>
     </div>
-    <div class="overlay hidden">
+    <div class="overlay">
         <div class="add-item hidden">
             <input type="text" name="fullname" id="fullname">
             <input type="date" name="end-date" id="end-date">
             <button class="add-item__cancel-button">Cancel</button>
             <button class="add-item__confirm-button">Confirm</button>
+        </div>
+        <div class="edit-item" data-edit-id="">
+            <p class="edit-item__name">Item Name</p>
+            <input type="date" name="edit-item__end-date" id="edit-item__end-date" class="edit-item__end-date" disabled>
+            <select name="edit-item__priority" id="edit-item__priority" class="edit-item__priority">
+                <option value="low">Low</option>
+                <option value="normal">Normal</option>
+                <option value="high">High</option>
+            </select>
+            <select name="edit-item__status" id="edit-item__status" class="edit-item__status">
+                <option value="done">Done</option>
+                <option value="undone">Undone</option>
+                <option value="progress">Progress</option>
+            </select>
+            <button class="edit-item__confirm-button">Confirm</button>
         </div>
     </div>
     
