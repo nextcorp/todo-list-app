@@ -38,6 +38,9 @@ function editEntry() {
     editElement.classList.add("hidden")
     overlay.classList.add("hidden")
 
+    sortStatusElement.value = "all"
+    sortPriorityElement.value = "all"
+
     render(list)
     updateButtons()
     saveList()
@@ -92,6 +95,9 @@ function addEntry() {
     render(list)
     updateButtons()
     saveList()
+
+    sortStatusElement.value = "all"
+    sortPriorityElement.value = "all"
 }
 
 function hideAddItemElement() {
