@@ -8,11 +8,10 @@ async function getAllRows() {
     return data
 }
 
-async function updateRow(row) {
+async function update(rows) {
     const { data, error } = await supabase_client
         .from("todos2")
-        .update(row)
-        .eq("id", row.id)
+        .upsert(rows)
         .select()
 }
 
@@ -23,22 +22,14 @@ async function addRow(row) {
         .select()
 }
 
-async function delRow(id) {
+async function delRow(row) {
     const { data, error } = await supabase_client
         .from("todos2")
         .delete()
-        .eq("id", id)
+        .eq("id", row.id)
         .select()
 
     console.log(id)
 }
 
-async function getSingleRow(id) {
-    const { data, error } = await supabase_client
-        .from("todos2")
-        .eq("id", id)
-        .select()
-    return data
-}
-
-export { getAllRows, getSingleRow, addRow, updateRow, delRow }
+export { getAllRows, addRow, update, delRow }

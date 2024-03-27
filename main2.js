@@ -2,7 +2,7 @@ import { createTemplate, render } from "./render.js"
 import { showOverlay, hideOverlay } from "./overlay.js"
 import { hideAddElement, showAddElement } from "./add.js"
 import { showEditElement, hideEditElement } from "./edit.js"
-import { getAllRows, getSingleRow, addRow, updateRow, delRow } from "./apis.js"
+import { getAllRows, addRow, update, delRow } from "./apis.js"
 
 const main = document.querySelector(".main")
 const content = main.querySelector(".content")
@@ -21,9 +21,40 @@ const editElementConfirm = editElement.querySelector(
 
 let list = []
 
-function addButtonHandler() {}
-function addConfirmButtonHandler() {}
-function addCancelButtonHandler() {}
+function addButtonHandler() {
+    showOverlay(overlay)
+    showAddElement(addItemElement)
+}
+
+function addConfirmButtonHandler() {
+    //prettier-ignore
+    const fullName = addItemElement.querySelector(`input[name="fullname"]`).value
+    //prettier-ignore
+    const dateEnd = addItemElement.querySelector(`input[name="end-date"]`).value
+    const priority = "normal"
+    const status = "undone"
+    const today = new Date()
+    const todayFormatted = `${today.getFullYear()}-${(today.getMonth() + 1)
+        .toString()
+        .padStart(2, "0")}-${today.getDate().toString().padStart(2, "0")}`
+    const addObjLayout = {
+        fullName: fullName,
+        status: status,
+        priority: priority,
+        start: todayFormatted,
+        end: dateEnd,
+    }
+
+    addRow(addObjLayout)
+    hideAddElement(addItemElement)
+    hideOverlay(overlay)
+    load()
+}
+
+function addCancelButtonHandler() {
+    hideAddElement(addItemElement)
+    hideOverlay(overlay)
+}
 
 function editButtonHandler() {}
 function editConfirmButtonHandler() {}

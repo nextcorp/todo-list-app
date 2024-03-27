@@ -52,6 +52,7 @@ function createTemplate(obj) {
 }
 
 function render(from, to) {
+    from.innerHTML = ""
     from.forEach((e) => to.append(createTemplate(e)))
 }
 
