@@ -32,3 +32,11 @@ async function delRow(id) {
 
     console.log(id)
 }
+
+async function getSingleRow(id) {
+    const { data, error } = await supabase_client
+        .from("todos2")
+        .eq("id", id)
+        .select()
+    return data
+}
