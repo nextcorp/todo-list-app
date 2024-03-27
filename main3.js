@@ -29,4 +29,6 @@ async function delRow(id) {
         .delete()
         .eq("id", id)
         .select()
+
+    console.log(id)
 }

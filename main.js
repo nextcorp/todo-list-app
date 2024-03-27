@@ -46,12 +46,13 @@ function editButtonHandler(id) {
     editElement.dataset.id = id
     editElementName.value = list[id].fullName
 
-    const formattedDate = list[id].end.split("/")
-
+    const formattedDate = list[id].end.split("-")
+    /*
     editElementEndDate.value = `${formattedDate[2]}-${formattedDate[1].padStart(
         2,
         "0"
-    )}-${formattedDate[0].padStart(2, "0")}`
+    )}-${formattedDate[0].padStart(2, "0")}`*/
+    editElementEndDate.value = list[id].end
     editElementPriority.value = list[id].priority
     editElementStatus.value = list[id].status
 
@@ -91,6 +92,16 @@ function addEntry() {
         end: dateEndFormatted,
     }
 
+    const addObjLayout = {
+        fullName: fullName,
+        status: status,
+        priority: priority,
+        start: `${today.getFullYear()}-${(today.getMonth() + 1)
+            .toString()
+            .padStart(2, "0")}-${today.getDate().toString().padStart(2, "0")}`,
+        end: dateEnd,
+    }
+
     list.push(newObj)
 
     sortStatusElement.value = "all"
@@ -99,7 +110,7 @@ function addEntry() {
     hideAddItemElement()
     render(list)
     updateButtons()
-    addRow(newObj)
+    addRow(addObjLayout)
 }
 
 function hideAddItemElement() {
@@ -155,8 +166,8 @@ function render(list2) {
     content.innerHTML = container
 }
 
-function loadList() {
-    list = getAllRows()
+async function loadList() {
+    list = await getAllRows()
     render(list)
     updateButtons()
 }
