@@ -5,3 +5,5 @@ function showOverlay(overlay) {
 function hideOverlay(overlay) {
     overlay.classList.add("hidden")
 }
+
+export { showOverlay, hideOverlay }

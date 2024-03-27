@@ -40,3 +40,5 @@ async function getSingleRow(id) {
         .select()
     return data
 }
+
+export { getAllRows, getSingleRow, addRow, updateRow, delRow }

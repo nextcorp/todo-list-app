@@ -52,3 +52,5 @@ function createTemplate(obj) {
 function render(from, to) {
     from.forEach((e) => to.append(createTemplate(e)))
 }
+
+export { createTemplate, render }
