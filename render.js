@@ -24,6 +24,7 @@ function createTemplate(obj) {
     item.append(itemInfo)
 
     const editBtn = document.createElement("button")
+    editBtn.className = "edit-btn"
     editBtn.setAttribute("data-id", obj.id)
 
     const editIcon = document.createElement("i")
@@ -32,6 +33,7 @@ function createTemplate(obj) {
     editBtn.append(editIcon)
 
     const delBtn = document.createElement("button")
+    delBtn.className = "del-btn"
     delBtn.setAttribute("data-id", obj.id)
 
     const delIcon = document.createElement("i")
