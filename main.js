@@ -18,10 +18,20 @@ const editElementConfirm = editElement.querySelector(
     ".edit-item__confirm-button"
 )
 
+const client = supabase.createClient(
+    "https://ahttrnaupayzqdhahspr.supabase.co",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFodHRybmF1cGF5enFkaGFoc3ByIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTE1MzY0NTMsImV4cCI6MjAyNzExMjQ1M30.gtIbuMWy5CxqNIIGaTCGBx2G2KId7r2FSomxhkCsWYo"
+)
+
 let list = []
 
-function saveList() {
-    localStorage.setItem("todos", JSON.stringify(list))
+async function saveList() {
+    const { data, error } = await client
+        .from("todos")
+        .update({ todos: JSON.stringify(list) })
+        .eq("id", "1")
+        .select()
+    //localStorage.setItem("todos", JSON.stringify(list))
 }
 
 function editEntry() {
@@ -159,14 +169,19 @@ function render(list2) {
     content.innerHTML = container
 }
 
-/*async*/ function loadList() {
+async function loadList() {
+    const { data, error } = await client.from("todos").select("*")
+    const todos = data[0].todos
+    list = JSON.parse(todos)
+    //list = data[0]
+
     //const resp = await fetch("./data.json")
     //const data = await resp.json()
 
-    const todos = localStorage.getItem("todos")
-    if (todos) {
-        list = JSON.parse(todos)
-    }
+    //const todos = localStorage.getItem("todos")
+    //if (todos) {
+    //    list = JSON.parse(todos)
+    //}
     render(list)
     updateButtons()
 }
