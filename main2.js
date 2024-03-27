@@ -31,7 +31,7 @@ function editConfirmButtonHandler() {}
 function deleteButtonHandler() {}
 
 async function load() {
-    list = getAllRows()
+    list = await getAllRows()
     render(list, content)
 }
 

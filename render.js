@@ -15,8 +15,8 @@ function createTemplate(obj) {
     itemInfoName.textContent = obj.fullName
 
     const itemInfoDate = document.createElement("p")
-    itemInfoName.className = "item-info__date"
-    itemInfoName.textContent = obj.end
+    itemInfoDate.className = "item-info__date"
+    itemInfoDate.textContent = obj.end
 
     itemInfo.append(itemInfoName)
     itemInfo.append(itemInfoDate)
