@@ -1,4 +1,4 @@
-import { createTemplate, render } from "./render.js"
+import { render } from "./render.js"
 import { showOverlay, hideOverlay } from "./overlay.js"
 import { hideAddElement, showAddElement } from "./add.js"
 import { showEditElement, hideEditElement, getEditValues } from "./edit.js"
