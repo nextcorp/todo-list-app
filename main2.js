@@ -2,7 +2,7 @@ import { createTemplate, render } from "./render.js"
 import { showOverlay, hideOverlay } from "./overlay.js"
 import { hideAddElement, showAddElement } from "./add.js"
 import { showEditElement, hideEditElement } from "./edit.js"
-import { getAllRows, addRow, update, delRow } from "./apis.js"
+import { getRow, updRow } from "./apis2.js"
 
 const main = document.querySelector(".main")
 const content = main.querySelector(".content")
@@ -37,7 +37,7 @@ function addConfirmButtonHandler() {
     const todayFormatted = `${today.getFullYear()}-${(today.getMonth() + 1)
         .toString()
         .padStart(2, "0")}-${today.getDate().toString().padStart(2, "0")}`
-    const addObjLayout = {
+    const newObj = {
         fullName: fullName,
         status: status,
         priority: priority,
@@ -45,10 +45,11 @@ function addConfirmButtonHandler() {
         end: dateEnd,
     }
 
-    addRow(addObjLayout)
     hideAddElement(addItemElement)
     hideOverlay(overlay)
-    load()
+    list.push(newObj)
+    updRow(list)
+    render(list, content)
 }
 
 function addCancelButtonHandler() {
@@ -62,9 +63,16 @@ function editConfirmButtonHandler() {}
 function deleteButtonHandler() {}
 
 async function load() {
-    list = await getAllRows()
+    list = await getRow()
     render(list, content)
 }
+
+/*
+todo: 
+1. solve list duplication
+2. solve id conflict between db and list index
+3. update db less frequently, use list array for temp changes, update db on add, edit, delete
+*/
 
 addButton.addEventListener("click", addButtonHandler)
 addCancel.addEventListener("click", addCancelButtonHandler)

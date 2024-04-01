@@ -1,4 +1,4 @@
-function createTemplate(obj) {
+function createTemplate(obj, id) {
     const item = document.createElement("div")
     item.className = "item"
 
@@ -25,7 +25,7 @@ function createTemplate(obj) {
 
     const editBtn = document.createElement("button")
     editBtn.className = "edit-btn"
-    editBtn.setAttribute("data-id", obj.id)
+    editBtn.setAttribute("data-id", id)
 
     const editIcon = document.createElement("i")
     editIcon.classList.add("fa-solid", "fa-pencil")
@@ -34,7 +34,7 @@ function createTemplate(obj) {
 
     const delBtn = document.createElement("button")
     delBtn.className = "del-btn"
-    delBtn.setAttribute("data-id", obj.id)
+    delBtn.setAttribute("data-id", id)
 
     const delIcon = document.createElement("i")
     delIcon.classList.add("fa-solid", "fa-trash-can")
@@ -42,8 +42,8 @@ function createTemplate(obj) {
     delBtn.append(delIcon)
 
     // new edit button function name
-    editBtn.addEventListener("click", () => editButtonHandler(obj.id))
-    delBtn.addEventListener("click", () => deleteEntry(obj.id))
+    editBtn.addEventListener("click", () => editButtonHandler(id))
+    delBtn.addEventListener("click", () => deleteEntry(id))
 
     item.append(editBtn)
     item.append(delBtn)
@@ -53,7 +53,7 @@ function createTemplate(obj) {
 
 function render(from, to) {
     from.innerHTML = ""
-    from.forEach((e) => to.append(createTemplate(e)))
+    from.forEach((e) => to.append(createTemplate(e, from.indexOf(e))))
 }
 
 export { createTemplate, render }
