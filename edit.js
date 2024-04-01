@@ -15,6 +15,15 @@ function showEditElement(list, id, editElement) {
     editElementStatus.value = list[id].status
 }
 
+function getEditValues(editElement) {
+    const editElementPriority = editElement.querySelector(
+        ".edit-item__priority"
+    )
+    const editElementStatus = editElement.querySelector(".edit-item__status")
+
+    return [editElementPriority.value, editElementStatus.value]
+}
+
 function hideEditElement(editElement) {
     const editElementName = editElement.querySelector(".edit-item__name")
     const editElementEndDate = editElement.querySelector(".edit-item__end-date")
@@ -32,4 +41,4 @@ function hideEditElement(editElement) {
     editElement.classList.add("hidden")
 }
 
-export { showEditElement, hideEditElement }
+export { showEditElement, hideEditElement, getEditValues }

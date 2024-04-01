@@ -15,4 +15,12 @@ async function updRows(rows) {
         .select()
 }
 
-export { getRows, updRows }
+async function delRows(id) {
+    const { data, error } = await supabase_client
+        .from("todos2")
+        .delete()
+        .eq("id", id)
+        .select()
+}
+
+export { getRows, updRows, delRows }

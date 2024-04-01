@@ -1,4 +1,4 @@
-function createTemplate(obj, id) {
+function createTemplate(obj, id, edHand, delHand) {
     const item = document.createElement("div")
     item.className = "item"
 
@@ -41,9 +41,8 @@ function createTemplate(obj, id) {
 
     delBtn.append(delIcon)
 
-    // new edit button function name
-    editBtn.addEventListener("click", () => editButtonHandler(id))
-    delBtn.addEventListener("click", () => deleteEntry(id))
+    editBtn.addEventListener("click", () => edHand(id))
+    delBtn.addEventListener("click", () => delHand(id))
 
     item.append(editBtn)
     item.append(delBtn)
@@ -51,9 +50,11 @@ function createTemplate(obj, id) {
     return item
 }
 
-function render(from, to) {
-    from.innerHTML = ""
-    from.forEach((e) => to.append(createTemplate(e, from.indexOf(e))))
+function render(from, to, edHand, delHand) {
+    to.querySelectorAll(".item").forEach((e) => e.remove())
+    from.forEach((e) =>
+        to.append(createTemplate(e, from.indexOf(e), edHand, delHand))
+    )
 }
 
 export { createTemplate, render }

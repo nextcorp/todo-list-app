@@ -1,8 +1,8 @@
 import { createTemplate, render } from "./render.js"
 import { showOverlay, hideOverlay } from "./overlay.js"
 import { hideAddElement, showAddElement } from "./add.js"
-import { showEditElement, hideEditElement } from "./edit.js"
-import { getRow, updRow } from "./apis2.js"
+import { showEditElement, hideEditElement, getEditValues } from "./edit.js"
+import { getRows, updRows, delRows } from "./apis2.js"
 
 const main = document.querySelector(".main")
 const content = main.querySelector(".content")
@@ -38,6 +38,7 @@ function addConfirmButtonHandler() {
         .toString()
         .padStart(2, "0")}-${today.getDate().toString().padStart(2, "0")}`
     const newObj = {
+        id: list[list.length - 1].id + 1,
         fullName: fullName,
         status: status,
         priority: priority,
@@ -48,8 +49,8 @@ function addConfirmButtonHandler() {
     hideAddElement(addItemElement)
     hideOverlay(overlay)
     list.push(newObj)
-    updRow(list)
-    render(list, content)
+    updRows(list)
+    render(list, content, editButtonHandler, deleteButtonHandler)
 }
 
 function addCancelButtonHandler() {
@@ -57,14 +58,32 @@ function addCancelButtonHandler() {
     hideOverlay(overlay)
 }
 
-function editButtonHandler() {}
-function editConfirmButtonHandler() {}
+function editButtonHandler(id) {
+    showOverlay(overlay)
+    showEditElement(list, id, editElement)
+}
 
-function deleteButtonHandler() {}
+function editConfirmButtonHandler() {
+    const updateId = parseInt(editElement.dataset.id)
+    const updatedValues = getEditValues(editElement)
+    list[updateId].priority = updatedValues[0]
+    list[updateId].status = updatedValues[1]
+
+    hideEditElement(editElement)
+    hideOverlay(overlay)
+    updRows(list)
+    render(list, content, editButtonHandler, deleteButtonHandler)
+}
+
+function deleteButtonHandler(id) {
+    const rowToDelete = list.splice(id, 1)
+    delRows(rowToDelete[0].id)
+    render(list, content, editButtonHandler, deleteButtonHandler)
+}
 
 async function load() {
-    list = await getRow()
-    render(list, content)
+    list = await getRows()
+    render(list, content, editButtonHandler, deleteButtonHandler)
 }
 
 /*
