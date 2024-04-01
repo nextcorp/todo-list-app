@@ -37,8 +37,10 @@ function addConfirmButtonHandler() {
     const todayFormatted = `${today.getFullYear()}-${(today.getMonth() + 1)
         .toString()
         .padStart(2, "0")}-${today.getDate().toString().padStart(2, "0")}`
+    const lastItem = list.length - 1
+    const newId = lastItem === -1 ? 0 : list[lastItem].id + 1
     const newObj = {
-        id: list[list.length - 1].id + 1,
+        id: newId,
         fullName: fullName,
         status: status,
         priority: priority,
@@ -85,13 +87,6 @@ async function load() {
     list = await getRows()
     render(list, content, editButtonHandler, deleteButtonHandler)
 }
-
-/*
-todo: 
-1. solve list duplication
-2. solve id conflict between db and list index
-3. update db less frequently, use list array for temp changes, update db on add, edit, delete
-*/
 
 addButton.addEventListener("click", addButtonHandler)
 addCancel.addEventListener("click", addCancelButtonHandler)
