@@ -1,9 +1,0 @@
-[
-    {
-        "fullName": "Item Name",
-        "status": "undone/done/progress",
-        "priority": "low/normal/high",
-        "start": "dd/mm/yyyy",
-        "end": "dd/mm/yyyy"
-    }
-]
