@@ -1,20 +1,14 @@
-const toolsElement = main.querySelector(".tools")
-const sortStatusElement = toolsElement.querySelector(".tools__sort")
-const sortPriorityElement = toolsElement.querySelector(".tools__sort-priority")
-
-function sortItems() {
+function sortItems(items, sortPriorityElement, sortStatusElement) {
     const priority = sortPriorityElement.value
     const status = sortStatusElement.value
-    let sorted = list
+    let sorted = items
     if (priority != "all") {
         sorted = sorted.filter((e) => e.priority === priority)
     }
     if (status != "all") {
         sorted = sorted.filter((e) => e.status === status)
     }
-    render(sorted)
-    updateButtons()
+    return sorted
 }
 
-sortStatusElement.addEventListener("input", sortItems)
-sortPriorityElement.addEventListener("input", sortItems)
+export { sortItems }

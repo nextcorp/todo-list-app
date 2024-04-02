@@ -3,6 +3,7 @@ import { showOverlay, hideOverlay } from "./overlay.js"
 import { hideAddElement, showAddElement } from "./add.js"
 import { showEditElement, hideEditElement, getEditValues } from "./edit.js"
 import { getRows, updRows, delRows } from "./apis.js"
+import { sortItems } from "./sort.js"
 
 const main = document.querySelector(".main")
 const content = main.querySelector(".content")
@@ -18,6 +19,9 @@ const addConfirm = addItemElement.querySelector(".add-item__confirm-button")
 const editElementConfirm = editElement.querySelector(
     ".edit-item__confirm-button"
 )
+
+const sortStatusElement = document.querySelector(".tools__sort")
+const sortPriorityElement = document.querySelector(".tools__sort-priority")
 
 let list = []
 
@@ -88,8 +92,19 @@ async function load() {
     render(list, content, editButtonHandler, deleteButtonHandler)
 }
 
+function sortHandler() {
+    render(
+        sortItems(list, sortPriorityElement, sortStatusElement),
+        content,
+        editButtonHandler,
+        deleteButtonHandler
+    )
+}
+
 addButton.addEventListener("click", addButtonHandler)
 addCancel.addEventListener("click", addCancelButtonHandler)
 addConfirm.addEventListener("click", addConfirmButtonHandler)
 editElementConfirm.addEventListener("click", editConfirmButtonHandler)
+sortPriorityElement.addEventListener("input", sortHandler)
+sortStatusElement.addEventListener("input", sortHandler)
 document.addEventListener("DOMContentLoaded", load)
