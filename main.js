@@ -2,7 +2,7 @@ import { render } from "./render.js"
 import { showOverlay, hideOverlay } from "./overlay.js"
 import { hideAddElement, showAddElement } from "./add.js"
 import { showEditElement, hideEditElement, getEditValues } from "./edit.js"
-import { getRows, updRows, delRows } from "./apis.js"
+import { getRows, updRows } from "./apis.js"
 import { sortItems } from "./sort.js"
 
 const main = document.querySelector(".main")
@@ -82,8 +82,8 @@ function editConfirmButtonHandler() {
 }
 
 function deleteButtonHandler(id) {
-    const rowToDelete = list.splice(id, 1)
-    delRows(rowToDelete[0].id)
+    list.splice(id, 1)
+    updRows(list)
     render(list, content, editButtonHandler, deleteButtonHandler)
 }
 
