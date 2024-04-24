@@ -1,0 +1,34 @@
+@import "common";
+
+.add-item,
+.edit-item {
+    background: $main-bg;
+    @include modal-common(3, 2);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.add-item input[name="fullname"],
+.add-item input[name="end-date"],
+.edit-item__end-date,
+.edit-item__priority,
+.edit-item__status {
+    @include tools-common(1, 1);
+    outline: none;
+    font-size: 1.1rem;
+}
+
+.add-item__cancel-button,
+.add-item__confirm-button,
+.edit-item__confirm-button {
+    padding-block: 0.7rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.edit-item__name,
+.edit-item__label {
+    font-size: 1.1rem;
+}

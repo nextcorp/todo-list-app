@@ -38,3 +38,8 @@ $state-done: #0f0;
     border-radius: $rmp * 0.25rem;
     border: none;
 }
+
+@mixin modal-common($mp, $rmp) {
+    padding: (0.5rem * $mp);
+    border-radius: $rmp * 0.25rem;
+}
