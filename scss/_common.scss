@@ -20,3 +20,21 @@ $state-size: 12px;
 $state-undone: #f00;
 $state-progress: #ff0;
 $state-done: #0f0;
+
+@mixin item-common($mp, $rmp) {
+    padding: (0.5rem * $mp) (1rem * $mp);
+    border-radius: $rmp * 0.25rem;
+    /*border: none;*/
+}
+
+@mixin tools-common($mp, $rmp) {
+    padding: (0.5rem * $mp) (1rem * $mp);
+    border-radius: $rmp * 0.25rem;
+    border: none;
+}
+
+@mixin button-common($mp, $rmp) {
+    padding: (0.5rem * $mp);
+    border-radius: $rmp * 0.25rem;
+    border: none;
+}

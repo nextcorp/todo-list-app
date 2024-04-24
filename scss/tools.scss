@@ -1,8 +1,4 @@
-@mixin tools-common($mp, $rmp) {
-    padding: (0.5rem * $mp) (1rem * $mp);
-    border-radius: $rmp * 0.25rem;
-    border: none;
-}
+@import "common";
 
 .tools {
     display: flex;
