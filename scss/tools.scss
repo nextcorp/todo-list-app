@@ -9,7 +9,8 @@
 
 .tools__new-project {
     @include tools-common(1, 1);
-    background: $tools__new-project-bg;
+    background: $add-btn-bg;
+    color: $add-btn-fg;
 }
 
 .tools__sort,
