@@ -7,11 +7,11 @@
 }
 
 .tools__new-project:hover {
-    background: lighten($add-btn-bg, 20%);
+    background: lighten($add-btn-bg, 6%);
 }
 
 .tools__new-project:active {
-    background: darken($add-btn-bg, 20%);
+    background: darken($add-btn-bg, 10%);
 }
 
 .edit-btn:hover,

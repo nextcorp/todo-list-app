@@ -7,11 +7,11 @@ $add-btn-bg: #1a9de9;
 $add-btn-fg: #eee;
 $sort-bg: lighten($main-bg, 11%);
 
-$item-bg: lighten($main-bg, 25%);
+$item-bg: lighten($main-bg, 17%);
 $item-action-btn: lighten($main-bg, 25%);
 
-$tools__new-project-bg: lighten($main-bg, 49%);
-$tools__sort-priority-bg: lighten($main-bg, 33%);
+$tools__new-project-bg: lighten($main-bg, 20%);
+$tools__sort-priority-bg: lighten($main-bg, 20%);
 
 $main-max-width: 500px;
 
@@ -25,7 +25,6 @@ $state-done: #0f0;
 @mixin item-common($mp, $rmp) {
     padding: (0.5rem * $mp) (1rem * $mp);
     border-radius: $rmp * 0.25rem;
-    /*border: none;*/
 }
 
 @mixin tools-common($mp, $rmp) {
