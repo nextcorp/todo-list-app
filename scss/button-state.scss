@@ -1,0 +1,23 @@
+.tools__new-project:hover,
+.del-btn:hover,
+.edit-btn:hover {
+    cursor: pointer;
+}
+
+.tools__new-project:hover {
+    background: lighten($add-btn-bg, 20%);
+}
+
+.tools__new-project:active {
+    background: darken($add-btn-bg, 20%);
+}
+
+.edit-btn:hover,
+.del-btn:hover {
+    background: lighten($edit-del-btn-bg, 10%);
+}
+
+.edit-btn:active,
+.del-btn:active {
+    background: darken($edit-del-btn-bg, 10%);
+}

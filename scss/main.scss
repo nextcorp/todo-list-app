@@ -1,0 +1,17 @@
+.main {
+    overflow: scroll;
+    max-width: $main-max-width;
+    max-height: 100%;
+    width: 100%;
+    background: $main-bg;
+    padding: 1rem;
+    border-radius: 0.25rem;
+}
+
+@media screen and (max-width: 500px) {
+    .main {
+        height: 100%;
+        overflow: unset;
+        background: transparent;
+    }
+}

@@ -1,0 +1,22 @@
+$bg: #444;
+$main-bg: #999;
+
+$edit-del-btn-bg: #ddd;
+
+$add-btn-bg: #1a9de9;
+$sort-bg: lighten($main-bg, 11%);
+
+$item-bg: lighten($main-bg, 25%);
+$item-action-btn: lighten($main-bg, 25%);
+
+$tools__new-project-bg: lighten($main-bg, 49%);
+$tools__sort-priority-bg: lighten($main-bg, 33%);
+
+$main-max-width: 500px;
+
+$font-stack: "Rubik", sans-serif;
+
+$state-size: 12px;
+$state-undone: #f00;
+$state-progress: #ff0;
+$state-done: #0f0;

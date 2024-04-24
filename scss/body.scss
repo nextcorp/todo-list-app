@@ -1,0 +1,16 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: $bg;
+}
+
+@media screen and (max-width: 500px) {
+    body {
+        display: unset;
+        align-items: unset;
+        justify-content: unset;
+        background: $main-bg;
+    }
+}

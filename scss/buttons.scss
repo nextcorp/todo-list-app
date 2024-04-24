@@ -1,0 +1,16 @@
+@mixin button-common($mp, $rmp) {
+    padding: (0.5rem * $mp);
+    border-radius: $rmp * 0.25rem;
+    border: none;
+}
+
+.edit-btn,
+.del-btn {
+    @include button-common(1, 1);
+    background: $edit-del-btn-bg;
+}
+
+.edit-btn {
+    margin-right: 0.5rem;
+    margin-left: auto;
+}

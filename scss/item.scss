@@ -1,0 +1,36 @@
+@mixin item-common($mp, $rmp) {
+    padding: (0.5rem * $mp) (1rem * $mp);
+    border-radius: $rmp * 0.25rem;
+    /*border: none;*/
+}
+
+.item {
+    display: flex;
+    background: $item-bg;
+    @include item-common(1, 1);
+    margin-block: 1rem;
+}
+
+.item-info__date {
+    color: $bg;
+}
+
+.state {
+    border-radius: 50%;
+    align-self: center;
+    margin-right: 1rem;
+    width: $state-size;
+    height: $state-size;
+}
+
+.state.undone {
+    background: $state-undone;
+}
+
+.state.done {
+    background: $state-done;
+}
+
+.state.progress {
+    background: $state-progress;
+}
