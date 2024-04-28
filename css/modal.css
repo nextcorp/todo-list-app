@@ -1,0 +1,37 @@
+.add-item,
+.edit-item {
+  background: #999;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.add-item input[name=fullname],
+.add-item input[name=end-date],
+.edit-item__end-date,
+.edit-item__priority,
+.edit-item__status {
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border: none;
+  outline: none;
+  font-size: 1.1rem;
+}
+
+.add-item__cancel-button,
+.add-item__confirm-button,
+.edit-item__confirm-button {
+  padding-block: 0.7rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.edit-item__name,
+.edit-item__label {
+  font-size: 1.1rem;
+}
+
+/*# sourceMappingURL=modal.css.map */

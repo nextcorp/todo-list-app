@@ -1,0 +1,18 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #444;
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    display: unset;
+    align-items: unset;
+    justify-content: unset;
+    background: #999;
+  }
+}
+
+/*# sourceMappingURL=body.css.map */

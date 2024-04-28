@@ -1,0 +1,14 @@
+.edit-btn,
+.del-btn {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: none;
+  background: #ddd;
+}
+
+.edit-btn {
+  margin-right: 0.5rem;
+  margin-left: auto;
+}
+
+/*# sourceMappingURL=buttons.css.map */

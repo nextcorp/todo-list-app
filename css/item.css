@@ -1,0 +1,33 @@
+.item {
+  display: flex;
+  background: #c4c4c4;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  margin-block: 1rem;
+}
+
+.item-info__date {
+  color: #444;
+}
+
+.state {
+  border-radius: 50%;
+  align-self: center;
+  margin-right: 1rem;
+  width: 12px;
+  height: 12px;
+}
+
+.state.undone {
+  background: #f00;
+}
+
+.state.done {
+  background: #0f0;
+}
+
+.state.progress {
+  background: #ff0;
+}
+
+/*# sourceMappingURL=item.css.map */

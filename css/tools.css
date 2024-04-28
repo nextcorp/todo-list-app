@@ -1,0 +1,29 @@
+.tools {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  position: sticky;
+}
+
+.tools__new-project {
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border: none;
+  background: #1a9de9;
+  color: #eee;
+}
+
+.tools__sort,
+.tools__sort-priority {
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border: none;
+  background: #cccccc;
+}
+
+.tools__sort-priority {
+  margin-right: 0.5rem;
+  margin-left: auto;
+}
+
+/*# sourceMappingURL=tools.css.map */

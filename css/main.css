@@ -1,0 +1,19 @@
+.main {
+  overflow: scroll;
+  max-width: 500px;
+  max-height: 100%;
+  width: 100%;
+  background: #999;
+  padding: 1rem;
+  border-radius: 0.25rem;
+}
+
+@media screen and (max-width: 500px) {
+  .main {
+    height: 100%;
+    overflow: unset;
+    background: transparent;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

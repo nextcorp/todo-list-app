@@ -1,0 +1,25 @@
+.tools__new-project:hover,
+.del-btn:hover,
+.edit-btn:hover {
+  cursor: pointer;
+}
+
+.tools__new-project:hover {
+  background: #36a9ec;
+}
+
+.tools__new-project:active {
+  background: #127fbe;
+}
+
+.edit-btn:hover,
+.del-btn:hover {
+  background: #f7f7f7;
+}
+
+.edit-btn:active,
+.del-btn:active {
+  background: #c4c4c4;
+}
+
+/*# sourceMappingURL=button-state.css.map */
