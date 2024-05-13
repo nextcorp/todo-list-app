@@ -8,15 +8,17 @@
 }
 
 .tools__new-project {
-    @include tools-common(1, 1);
+    @include tools-common(0.8, 0.8);
     background: $add-btn-bg;
     color: $add-btn-fg;
+    font-size: $add-btn-fs;
 }
 
 .tools__sort,
 .tools__sort-priority {
-    @include tools-common(1, 1);
+    @include tools-common(0.8, 0.8);
     background: $tools__sort-priority-bg;
+    font-size: $add-btn-fs;
 }
 
 .tools__sort-priority {
